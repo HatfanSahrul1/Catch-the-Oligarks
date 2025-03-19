@@ -34,10 +34,10 @@ public class Movement : MonoBehaviour
         
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        float moveInput = 0;// = Input.GetAxisRaw("Horizontal");
+        float moveInput = Input.GetAxisRaw("Horizontal");
         
-        if(Input.GetKey(KeyCode.D)) moveInput = 1.0f;
-        else if(Input.GetKey(KeyCode.A)) moveInput = -1.0f;
+        // if(Input.GetKey(KeyCode.D)) moveInput = 1.0f;
+        // else if(Input.GetKey(KeyCode.A)) moveInput = -1.0f;
         
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
         
