@@ -829,7 +829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dampTime: 3
   target: {fileID: 2057298722}
-  yPlayer: 2.5
+  yPlayer: -0.5
 --- !u!1 &605822485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,6 +1094,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1625062002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1625062003}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1625062003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625062002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.65, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2057298722}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1842392300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,6 +1396,7 @@ GameObject:
   - component: {fileID: 2057298723}
   - component: {fileID: 2057298724}
   - component: {fileID: 2057298725}
+  - component: {fileID: 2057298726}
   m_Layer: 0
   m_Name: Char
   m_TagString: Player
@@ -1438,6 +1470,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1287104168}
+  - {fileID: 1625062003}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2057298723
@@ -1466,7 +1499,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 4
 --- !u!61 &2057298724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1525,12 +1558,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 20
+  jumpForce: 15
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 1287104168}
   groundCheckRadius: 0.2
+--- !u!114 &2057298726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057298720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10613ff0244414a408c608f6040a1650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootPoint: {fileID: 1625062003}
+  minDistance: 2
+  maxDistance: 6
+  chargeTime: 3
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -46,5 +46,4 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
-
 }
