@@ -229,15 +229,15 @@ public class PlatformPool : MonoBehaviour
     }
 
     // Optional: Add this method to help debug issues
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 300, 20), $"Active Platforms: {activePlatforms.Count}");
-        GUI.Label(new Rect(10, 30, 300, 20), $"Player Position: {player.position.x:F2}");
+    // private void OnGUI()
+    // {
+    //     GUI.Label(new Rect(10, 10, 300, 20), $"Active Platforms: {activePlatforms.Count}");
+    //     GUI.Label(new Rect(10, 30, 300, 20), $"Player Position: {player.position.x:F2}");
 
-        if (activePlatforms.Count > 0)
-        {
-            GUI.Label(new Rect(10, 50, 300, 20), $"First Platform: {activePlatforms[0].transform.position.x:F2}");
-            GUI.Label(new Rect(10, 70, 300, 20), $"Last Platform: {activePlatforms[activePlatforms.Count - 1].transform.position.x:F2}");
-        }
-    }
+    //     if (activePlatforms.Count > 0)
+    //     {
+    //         GUI.Label(new Rect(10, 50, 300, 20), $"First Platform: {activePlatforms[0].transform.position.x:F2}");
+    //         GUI.Label(new Rect(10, 70, 300, 20), $"Last Platform: {activePlatforms[activePlatforms.Count - 1].transform.position.x:F2}");
+    //     }
+    // }
 }
