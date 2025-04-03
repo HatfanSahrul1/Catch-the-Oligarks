@@ -12,8 +12,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Hook
   - 
   - 
   - 
@@ -50,6 +50,9 @@ TagManager:
     locked: 0
   - name: background2
     uniqueID: 2112576173
+    locked: 0
+  - name: entity
+    uniqueID: 735202245
     locked: 0
   - name: player
     uniqueID: 2062581905
