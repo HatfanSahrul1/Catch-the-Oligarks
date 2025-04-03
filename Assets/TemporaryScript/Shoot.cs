@@ -44,8 +44,9 @@ public class Shoot : MonoBehaviour
 
     void Fire()
     {
-        Debug.Log("Fired at: " + targetPoint);
-        Instantiate(this.gameObject, targetPoint, Quaternion.identity);
+        
+        // Debug.Log("Fired at: " + targetPoint);
+        // Instantiate(this.gameObject, targetPoint, Quaternion.identity);
     }
 
     // Menampilkan Gizmos untuk mengecek arah dan jarak tembakan
