@@ -5,8 +5,10 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     [SerializeField] Transform shootPoint;
+    [SerializeField] GameObject hookPrefab;
     [SerializeField] float minDistance = 2.0f, maxDistance = 6.0f;
     [SerializeField] float chargeTime = 3.0f;
+    [SerializeField] float bulletTravelTime = 0.5f;
     [SerializeField] LayerMask targetLayer;
 
     private float holdTime = 0f;
@@ -16,6 +18,7 @@ public class Shoot : MonoBehaviour
 
     void Update()
     {
+        GameObject target = null;
         if (Input.GetButton("Fire1"))
         {
             holdTime += Time.deltaTime;
@@ -27,6 +30,7 @@ public class Shoot : MonoBehaviour
             if (hit.collider != null)
             {
                 targetPoint = hit.point;
+                target = hit.transform.gameObject;
             }
             else
             {
@@ -36,17 +40,19 @@ public class Shoot : MonoBehaviour
 
         if (Input.GetButtonUp("Fire1"))
         {
-            Fire();
+            Fire(target);
             holdTime = 0f;
             isCharging = false;
         }
     }
 
-    void Fire()
+    void Fire(GameObject target)
     {
-        
-        // Debug.Log("Fired at: " + targetPoint);
-        // Instantiate(this.gameObject, targetPoint, Quaternion.identity);
+        if (hookPrefab != null)
+        {
+            GameObject projectile = Instantiate(hookPrefab, shootPoint.position, Quaternion.identity);
+            projectile.GetComponent<Projectile>().SetTarget(targetPoint, bulletTravelTime);
+        }
     }
 
     // Menampilkan Gizmos untuk mengecek arah dan jarak tembakan
