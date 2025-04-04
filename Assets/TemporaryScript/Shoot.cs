@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     [SerializeField] Transform shootPoint;
-    [SerializeField] GameObject hookPrefab;
+    [SerializeField] string projectileTag;
     [SerializeField] float minDistance = 2.0f, maxDistance = 6.0f;
     [SerializeField] float chargeTime = 3.0f;
     [SerializeField] float bulletTravelTime = 0.5f;
@@ -15,6 +15,12 @@ public class Shoot : MonoBehaviour
     private float currentRange;
     private Vector2 targetPoint;
     private bool isCharging = false; // Menandakan apakah sedang mengisi daya tembakan
+
+    ObjectPool objectPool;
+
+    void Start(){
+        objectPool = ObjectPool.Instance;
+    }
 
     void Update()
     {
@@ -48,9 +54,9 @@ public class Shoot : MonoBehaviour
 
     void Fire(GameObject target)
     {
-        if (hookPrefab != null)
+        if (projectileTag != null)
         {
-            GameObject projectile = Instantiate(hookPrefab, shootPoint.position, Quaternion.identity);
+            GameObject projectile = objectPool.SpawnFromPool(projectileTag, shootPoint.position, Quaternion.identity);
             projectile.GetComponent<Projectile>().SetTarget(targetPoint, bulletTravelTime);
         }
     }

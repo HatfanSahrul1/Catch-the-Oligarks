@@ -26,6 +26,6 @@ public class Projectile : MonoBehaviour
         }
 
         transform.position = targetPoint;
-        Destroy(gameObject, 0.5f); // Hancurkan proyektil setelah mencapai target
+        // Destroy(gameObject, 0.5f); // Hancurkan proyektil setelah mencapai target
     }
 }
