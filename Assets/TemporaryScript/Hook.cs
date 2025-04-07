@@ -13,6 +13,10 @@ public class Projectile : MonoBehaviour
         StartCoroutine(MoveToTarget());
     }
 
+    public void AttachOnTargetAction(){
+        gameObject.SetActive(false);
+    }
+
     private IEnumerator MoveToTarget()
     {
         Vector2 startPos = transform.position;
@@ -27,5 +31,18 @@ public class Projectile : MonoBehaviour
 
         transform.position = targetPoint;
         // Destroy(gameObject, 0.5f); // Hancurkan proyektil setelah mencapai target
+        AttachOnTargetAction();
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        if(!other.gameObject.CompareTag("Player")){
+            try
+            {
+                IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
+                damageable.TakeDamage();
+                AttachOnTargetAction();
+            }
+            catch (System.Exception){}
+        }
     }
 }
