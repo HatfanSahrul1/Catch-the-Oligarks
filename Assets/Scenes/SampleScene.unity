@@ -980,7 +980,10 @@ MonoBehaviour:
   pools:
   - tag: Hook
     prefab: {fileID: 434985124446902209, guid: 15369e9131bad5a429c1bbb0c863a931, type: 3}
-    size: 1
+    size: 5
+  - tag: Enemy
+    prefab: {fileID: 7906165175188640894, guid: 73cea73c0824891458fca7dd845e0dda, type: 3}
+    size: 5
 --- !u!4 &1167528584
 Transform:
   m_ObjectHideFlags: 0
@@ -1712,7 +1715,7 @@ MonoBehaviour:
   minDistance: 2
   maxDistance: 6
   chargeTime: 3
-  bulletTravelTime: 0.1
+  bulletTravelTime: 0.5
   targetLayer:
     serializedVersion: 2
     m_Bits: 507
