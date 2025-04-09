@@ -51,11 +51,15 @@ public class Movement : MonoBehaviour
     {
         float moveInput = move.ReadValue<float>();
         if (moveInput > 0)
+        {
             moveInput = 1;
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
         else if (moveInput < 0)
+        {
             moveInput = -1;
-        else
-            moveInput = 0;
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
 
         rb.velocity = new Vector2(moveInput * moveSpeed * Time.fixedDeltaTime, rb.velocity.y);
     }
