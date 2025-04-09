@@ -14,17 +14,22 @@ public class Shoot : MonoBehaviour
     private float holdTime = 0f;
     private float currentRange;
     private Vector2 targetPoint;
-    private bool isCharging = false; // Menandakan apakah sedang mengisi daya tembakan
+    private bool isCharging = false;
 
     ObjectPool objectPool;
 
-    void Start(){
+    void Start()
+    {
         objectPool = ObjectPool.Instance;
     }
 
     void Update()
     {
         GameObject target = null;
+
+        // Hitung arah hadap berdasarkan localScale.x
+        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+
         if (Input.GetButton("Fire1"))
         {
             holdTime += Time.deltaTime;
@@ -32,7 +37,7 @@ public class Shoot : MonoBehaviour
             currentRange = Mathf.Lerp(minDistance, maxDistance, t);
             isCharging = true;
 
-            RaycastHit2D hit = Physics2D.Raycast(shootPoint.position, transform.right, currentRange, targetLayer);
+            RaycastHit2D hit = Physics2D.Raycast(shootPoint.position, direction, currentRange, targetLayer);
             if (hit.collider != null)
             {
                 targetPoint = hit.point;
@@ -40,7 +45,7 @@ public class Shoot : MonoBehaviour
             }
             else
             {
-                targetPoint = (Vector2)shootPoint.position + (Vector2)transform.right * currentRange;
+                targetPoint = (Vector2)shootPoint.position + direction * currentRange;
             }
         }
 
@@ -61,20 +66,19 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    // Menampilkan Gizmos untuk mengecek arah dan jarak tembakan
     void OnDrawGizmos()
     {
         if (shootPoint == null) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(shootPoint.position, 0.1f); // Menandai titik tembak
+        Gizmos.DrawSphere(shootPoint.position, 0.1f);
 
-        if (isCharging) // Jika sedang menahan tombol Fire1
+        if (isCharging)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(shootPoint.position, targetPoint); // Menunjukkan lintasan raycast
+            Gizmos.DrawLine(shootPoint.position, targetPoint);
             Gizmos.color = Color.green;
-            Gizmos.DrawSphere(targetPoint, 0.2f); // Menandai titik akhir raycast
+            Gizmos.DrawSphere(targetPoint, 0.2f);
         }
     }
 }
