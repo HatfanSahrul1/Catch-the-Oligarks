@@ -14,4 +14,8 @@ public class Character : MonoBehaviour
     public bool isFallOf(){
         return this.transform.position.y <= FALL_LIMIT;
     }
+
+    public void ResetHealth(){
+        this.health = 10;
+    }
 }
