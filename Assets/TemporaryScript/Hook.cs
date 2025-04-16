@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    int AdditionScore = 10; // bukan best practice tapi ywdahsih
     private Vector2 targetPoint;
     private float travelTime;
 
@@ -14,6 +15,7 @@ public class Projectile : MonoBehaviour
     }
 
     public void AttachOnTargetAction(){
+        Info.Instance.AddScore(AdditionScore);
         gameObject.SetActive(false);
     }
 
