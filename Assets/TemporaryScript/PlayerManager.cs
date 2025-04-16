@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : Character, IDamageable
 {
+    public static PlayerManager Instance;
     void Start(){
-
+        Instance = this;
     }
 
     void Update(){
