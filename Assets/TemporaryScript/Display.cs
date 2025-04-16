@@ -10,9 +10,17 @@ public class Display : MonoBehaviour
 
     void Awake(){
         info = Info.Instance;
+        if (info != null){
+            info.OnScoreChanged += this.UpdateScore;
+        }
     }
+
     void Start(){
         if (info == null){
+            info = Info.Instance;
+            info.OnScoreChanged += this.UpdateScore;
+        }
+        else{
             info.OnScoreChanged += this.UpdateScore;
         }
     }
