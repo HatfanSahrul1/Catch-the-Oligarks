@@ -15,7 +15,6 @@ public class Projectile : MonoBehaviour
     }
 
     public void AttachOnTargetAction(){
-        Info.Instance.AddScore(AdditionScore);
         gameObject.SetActive(false);
     }
 
@@ -42,6 +41,7 @@ public class Projectile : MonoBehaviour
             {
                 IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
                 damageable.TakeDamage();
+                Info.Instance.AddScore(AdditionScore);
                 AttachOnTargetAction();
             }
             catch (System.Exception){}
