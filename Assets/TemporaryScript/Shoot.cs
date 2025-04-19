@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    [SerializeField] GameObject crosshair;
     [SerializeField] Transform shootPoint;
     [SerializeField] string projectileTag;
     [SerializeField] float minDistance = 2.0f, maxDistance = 6.0f;
@@ -21,6 +22,7 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         objectPool = ObjectPool.Instance;
+        if(crosshair != null) crosshair.SetActive(false);
     }
 
     void Update()
@@ -47,6 +49,8 @@ public class Shoot : MonoBehaviour
             {
                 targetPoint = (Vector2)shootPoint.position + direction * currentRange;
             }
+            crosshair.SetActive(true);
+            crosshair.transform.position = targetPoint;
         }
 
         if (Input.GetButtonUp("Fire1"))
@@ -54,6 +58,7 @@ public class Shoot : MonoBehaviour
             Fire(target);
             holdTime = 0f;
             isCharging = false;
+            crosshair.SetActive(false);
         }
     }
 
