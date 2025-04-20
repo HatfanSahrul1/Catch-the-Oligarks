@@ -13,6 +13,10 @@ public class EnemyManager : Character, IDamageable
         }
     }
 
+    public void SetToDeath(){
+        health = 0;
+    }
+
     public void TakeDamage(){
         Drone.Instance.CaughtThisEnemy(this.transform);
     }
