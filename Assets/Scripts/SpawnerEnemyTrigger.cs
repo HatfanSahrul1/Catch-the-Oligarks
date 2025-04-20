@@ -22,7 +22,7 @@ public class SpawnerEnemyTrigger : MonoBehaviour
         if(other.gameObject.CompareTag("Player") && !isSpawned){
             isSpawned = true;
             GameObject enemy = objectPool.SpawnFromPool(EnemyTag, spawnPoint.position, Quaternion.identity);
-            enemy.GetComponent<Character>().ResetHealth();
+            enemy.GetComponent<Character>().Reset();
         }
     }
 }
