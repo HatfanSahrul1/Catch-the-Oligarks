@@ -14,7 +14,6 @@ public class EnemyManager : Character, IDamageable
     }
 
     public void TakeDamage(){
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        GrapplePuller.Instance.StartPull(transform, player.transform);
+        Drone.Instance.CaughtThisEnemy(this.transform);
     }
 }
