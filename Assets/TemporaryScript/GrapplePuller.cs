@@ -15,6 +15,7 @@ public class GrapplePuller : MonoBehaviour
     }
     public void StartPull(Transform target, Transform destination)
     {
+        GrappleLine.Instance.Attach(destination, target);
         StartCoroutine(PullToTarget(target, destination));
     }
 
