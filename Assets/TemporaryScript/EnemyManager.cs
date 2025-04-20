@@ -19,5 +19,6 @@ public class EnemyManager : Character, IDamageable
 
     public void TakeDamage(){
         Drone.Instance.CaughtThisEnemy(this.transform);
+        this.GetComponent<Rigidbody2D>().gravityScale = 0;
     }
 }
