@@ -1,38 +1,41 @@
 using UnityEngine;
+using System.Collections;
 
 public class GrappleLine : MonoBehaviour
 {
-    public Transform startPoint;  // Biasanya posisi player atau grappling gun
-    public Transform endPoint;    // Posisi musuh yang kena hook
     private LineRenderer lineRenderer;
 
-    void Start()
+    public static GrappleLine Instance;
+
+    void Awake()
     {
+        Instance = this;
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
+        lineRenderer.enabled = false;
     }
 
-    void Update()
+    public void Attach(Transform start, Transform end)
     {
-        if (endPoint != null)
-        {
-            lineRenderer.enabled = true;
-            lineRenderer.SetPosition(0, startPoint.position);
-            lineRenderer.SetPosition(1, endPoint.position);
-        }
-        else
-        {
-            lineRenderer.enabled = false;
-        }
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, start.position);
+        lineRenderer.SetPosition(1, end.position);
+
+        StartCoroutine(UpdateLine(start, end));
     }
 
-    public void AttachLineTo(Transform enemyTransform)
+    IEnumerator UpdateLine(Transform start, Transform end)
     {
-        endPoint = enemyTransform;
+        while (end != null && lineRenderer.enabled)
+        {
+            lineRenderer.SetPosition(0, start.position);
+            lineRenderer.SetPosition(1, end.position);
+            yield return null;
+        }
     }
 
     public void Detach()
     {
-        endPoint = null;
+        lineRenderer.enabled = false;
     }
 }
