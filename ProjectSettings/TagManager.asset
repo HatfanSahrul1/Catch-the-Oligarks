@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Enemy
+  - Drone
   layers:
   - Default
   - TransparentFX
