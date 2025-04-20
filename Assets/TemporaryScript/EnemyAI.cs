@@ -26,6 +26,9 @@ public class EnemyAI : MonoBehaviour
     {
         if(other.CompareTag("Player")){
             other.GetComponent<IDamageable>().TakeDamage();
+        }else if(other.CompareTag("Drone")){
+            this.GetComponent<EnemyManager>().SetToDeath();
+            GrappleLine.Instance.Detach();
         }
     }
 }
