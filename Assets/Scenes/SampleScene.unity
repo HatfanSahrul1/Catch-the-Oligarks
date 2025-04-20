@@ -1171,6 +1171,7 @@ GameObject:
   - component: {fileID: 1133560820}
   - component: {fileID: 1133560819}
   - component: {fileID: 1133560821}
+  - component: {fileID: 1133560822}
   m_Layer: 0
   m_Name: Grapple
   m_TagString: Untagged
@@ -1309,8 +1310,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7388a1150464c429e940dbcfd4e6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 2057298722}
-  endPoint: {fileID: 1167528584}
+--- !u!114 &1133560822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133560818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeed16e785dfecd49a54ac5927994d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullSpeed: 10
 --- !u!1 &1167528582
 GameObject:
   m_ObjectHideFlags: 0
