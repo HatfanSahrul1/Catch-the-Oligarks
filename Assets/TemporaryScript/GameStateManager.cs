@@ -3,7 +3,12 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour 
 {
+    public static GameStateManager Instance { get; private set;}
     GameStateEnum gameStateEnum;
+
+    void Awake(){
+        if(Instance == null) Instance = this;
+    }
 
     void Start(){
         gameStateEnum = GameStateEnum.Home;
