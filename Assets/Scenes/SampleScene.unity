@@ -935,6 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420028}
   parallaxEffect: 0.3
+  isFollowY: 0
 --- !u!1 &1102705918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,6 +1867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420028}
   parallaxEffect: 0.8
+  isFollowY: 1
 --- !u!1 &1967109107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,6 +2112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420028}
   parallaxEffect: 0
+  isFollowY: 1
 --- !u!4 &2057298722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9142093310698092144, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
