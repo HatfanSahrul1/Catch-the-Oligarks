@@ -1,11 +1,18 @@
 using UnityEngine;
 using System.Collections;
 
-public class CameraFollow : MonoBehaviour {
-	
+public class CameraFollow : MonoBehaviour 
+{
+	public static CameraFollow Instance;	
 	public float dampTime = 0.15f;
 	public Transform target;
 	[SerializeField] float yPlayer = 1.0f;
+	[SerializeField] float yHome = 1.0f;
+	[SerializeField] bool isHome = false;
+
+	void Awake(){
+		if (Instance==null) Instance = this;
+	}
 	void Update () 
 	{
 		if (target)
