@@ -7,6 +7,7 @@ public class ParallaxBackground : MonoBehaviour
     float starPos, length;
     public GameObject cam;
     public float parallaxEffect;
+    [SerializeField] bool isFollowY = false;
 
     void Start(){
         starPos = transform.position.x;
@@ -17,7 +18,7 @@ public class ParallaxBackground : MonoBehaviour
         float distance = cam.transform.position.x * parallaxEffect;
         float movement = cam.transform.position.x * (1 - parallaxEffect);
 
-        transform.position = new Vector3(starPos + distance, transform.position.y, transform.position.z);
+        transform.position = new Vector3(starPos + distance, (isFollowY) ? cam.transform.position.y : transform.position.y, transform.position.z);
 
         if(movement > starPos + length){
             starPos += length;
