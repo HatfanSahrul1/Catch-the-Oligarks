@@ -19,7 +19,7 @@ public class CameraFollow : MonoBehaviour
 		{
 			Vector3 from = transform.position;
 			
-			Vector3 playerPos = new Vector3(target.position.x, yPlayer, target.position.z);
+			Vector3 playerPos = new Vector3(target.position.x, (isHome) ? yHome : yPlayer, target.position.z);
 			playerPos.z = transform.position.z;
 
 			transform.position -= (from-playerPos)*dampTime*Time.deltaTime;
