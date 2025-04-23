@@ -20,6 +20,7 @@ public class Character : MonoBehaviour
         this.health = 10;
         try{
             GetComponent<Rigidbody2D>().gravityScale = GRAVITY_SCALE;
+            GetComponent<BoxCollider2D>().isTrigger = false;
         }catch{}
     }
 }
