@@ -27,6 +27,12 @@ public class Shoot : MonoBehaviour
 
     void Update()
     {
+        if(GameStateManager.Instance.GetCurrentState() == GameStateEnum.Play){
+            ShootingMechanism();
+        }
+    }
+    
+    void ShootingMechanism(){
         GameObject target = null;
 
         // Hitung arah hadap berdasarkan localScale.x
