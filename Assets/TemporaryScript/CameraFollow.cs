@@ -25,4 +25,8 @@ public class CameraFollow : MonoBehaviour
 			transform.position -= (from-playerPos)*dampTime*Time.deltaTime;
 		}
 	}
+
+	public void PressPlay(){
+		isHome = false;
+	}
 }
