@@ -13,10 +13,6 @@ public class PlayerManager : Character, IDamageable
         if(isFallOf()){
             TakeDamage();
         }
-
-        if(isDead()){
-            DeathAction();
-        }
     }
 
     public void DeathAction(){

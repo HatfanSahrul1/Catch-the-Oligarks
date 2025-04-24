@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GamePlayManager : MonoBehaviour 
 {
@@ -12,11 +13,17 @@ public class GamePlayManager : MonoBehaviour
         if(Instance == null) Instance = this;
     }
 
+    void Start(){
+        Time.timeScale = 1;
+    }
+
     void Update(){
         gameStateEnum = GameStateManager.Instance.GetCurrentState();
 
         switch(gameStateEnum){
-            case GameStateEnum.Home: Home(); break;
+            case GameStateEnum.Home:    Home();    break;
+            case GameStateEnum.Play:    Play();    break;
+            case GameStateEnum.Dead:    Dead();    break;
         }
     }
 
@@ -30,6 +37,20 @@ public class GamePlayManager : MonoBehaviour
         if(Movement.Instance.IsGround()){
             GameStateManager.Instance.SwitchState(GameStateEnum.Play);
             Display.Instance.SetVisibility(true);
+        }
+    }
+
+    void Play(){
+        if(PlayerManager.Instance.isDead()){
+            GameStateManager.Instance.SwitchState(GameStateEnum.Dead);
+            DeathUI.Instance.ShowDeathUI(true);
+            Time.timeScale = 0;
+        }
+    }
+
+    void Dead(){
+        if(Input.anyKeyDown){
+            SceneManager.LoadScene("SampleScene");
         }
     }
 }
