@@ -48,8 +48,10 @@ public class Movement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        HandleMovement();
-        HandleJump();
+        if(GameStateManager.Instance.GetCurrentState() == GameStateEnum.Play){
+            HandleMovement();
+            HandleJump();
+        }
     }
 
     private void HandleMovement()
