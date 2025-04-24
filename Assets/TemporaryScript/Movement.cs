@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    public static Movement Instance;
     [Header("Input")]
     [SerializeField] private InputAction move;
     [SerializeField] private InputAction jump;
@@ -25,6 +26,10 @@ public class Movement : MonoBehaviour
     {
         move.Enable();
         jump.Enable();
+    }
+
+    void Awake(){
+        if (Instance == null) Instance = this;
     }
 
     void Start()
@@ -68,5 +73,9 @@ public class Movement : MonoBehaviour
     {
         if (jump.IsPressed() && isGrounded)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
+
+    public bool IsGround(){
+        return isGrounded;
     }
 }
