@@ -14,7 +14,7 @@ public class GameStateManager : MonoBehaviour
         gameStateEnum = GameStateEnum.Home;
     }
 
-    public void SwicthState(GameStateEnum newState){
+    public void SwitchState(GameStateEnum newState){
         gameStateEnum = newState;
     }
 
