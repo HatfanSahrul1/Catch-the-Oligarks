@@ -2167,6 +2167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7388a1150464c429e940dbcfd4e6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1337679839}
+  drone: {fileID: 1967109108}
 --- !u!114 &1133560822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2481,6 +2483,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278547422}
   m_CullTransparentMesh: 1
+--- !u!4 &1337679839 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6794531874423219098, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
+  m_PrefabInstance: {fileID: 7848955151558277326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1400752372
 GameObject:
   m_ObjectHideFlags: 0

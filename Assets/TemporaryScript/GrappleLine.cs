@@ -1,37 +1,64 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GrappleLine : MonoBehaviour
 {
+    public static GrappleLine Instance;
+
     private LineRenderer lineRenderer;
 
-    public static GrappleLine Instance;
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform drone;
+    private Transform hookOrEnemy;
+
+    private GrappleLineMode mode;
 
     void Awake()
     {
         Instance = this;
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;
         lineRenderer.enabled = false;
     }
 
-    public void Attach(Transform start, Transform end)
+    void Update()
     {
-        lineRenderer.enabled = true;
-        lineRenderer.SetPosition(0, start.position);
-        lineRenderer.SetPosition(1, end.position);
+        if (!lineRenderer.enabled) return;
 
-        StartCoroutine(UpdateLine(start, end));
+        switch (mode)
+        {
+            case GrappleLineMode.DroneToPlayer:
+                lineRenderer.positionCount = 2;
+                lineRenderer.SetPosition(0, drone.position);
+                lineRenderer.SetPosition(1, player.position);
+                break;
+
+            case GrappleLineMode.DroneToPlayerToHook:
+                if (hookOrEnemy != null)
+                {
+                    lineRenderer.positionCount = 3;
+                    lineRenderer.SetPosition(0, drone.position);
+                    lineRenderer.SetPosition(1, player.position);
+                    lineRenderer.SetPosition(2, hookOrEnemy.position);
+                }
+                break;
+
+            case GrappleLineMode.DroneToEnemy:
+                if (hookOrEnemy != null)
+                {
+                    lineRenderer.positionCount = 2;
+                    lineRenderer.SetPosition(0, drone.position);
+                    lineRenderer.SetPosition(1, hookOrEnemy.position);
+                }
+                break;
+        }
     }
 
-    IEnumerator UpdateLine(Transform start, Transform end)
+    public void SetMode(GrappleLineMode newMode, Transform hookOrEnemyTarget = null)
     {
-        while (end != null && lineRenderer.enabled)
-        {
-            lineRenderer.SetPosition(0, start.position);
-            lineRenderer.SetPosition(1, end.position);
-            yield return null;
-        }
+        mode = newMode;
+        hookOrEnemy = hookOrEnemyTarget;
+        lineRenderer.enabled = true;
     }
 
     public void Detach()

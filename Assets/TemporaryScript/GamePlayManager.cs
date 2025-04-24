@@ -37,6 +37,7 @@ public class GamePlayManager : MonoBehaviour
         if(Movement.Instance.IsGround()){
             GameStateManager.Instance.SwitchState(GameStateEnum.Play);
             Display.Instance.SetVisibility(true);
+            GrappleLine.Instance.SetMode(GrappleLineMode.DroneToPlayer);
         }
     }
 
