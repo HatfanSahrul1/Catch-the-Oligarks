@@ -13,5 +13,6 @@ public class Drone : MonoBehaviour
     }
     public void CaughtThisEnemy(Transform enemy){
         GrapplePuller.Instance.StartPull(enemy, this.transform);
+        GrappleLine.Instance.Attach(enemy, this.transform);
     }
 }
