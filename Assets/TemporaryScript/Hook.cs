@@ -33,6 +33,7 @@ public class Projectile : MonoBehaviour
         transform.position = targetPoint;
         // Destroy(gameObject, 0.5f); // Hancurkan proyektil setelah mencapai target
         AttachOnTargetAction();
+        GrappleLine.Instance.SetMode(GrappleLineMode.DroneToPlayer);
     }
 
     void OnTriggerEnter2D(Collider2D other){
@@ -45,6 +46,7 @@ public class Projectile : MonoBehaviour
                 AttachOnTargetAction();
             }
             catch (System.Exception){}
+        }else{
         }
     }
 }

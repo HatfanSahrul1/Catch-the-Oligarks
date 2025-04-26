@@ -7,3 +7,9 @@ public enum GameStateEnum{
     Pause,
     Dead
 };
+
+public enum GrappleLineMode {
+    DroneToPlayer,
+    DroneToPlayerToHook,
+    DroneToEnemy
+}

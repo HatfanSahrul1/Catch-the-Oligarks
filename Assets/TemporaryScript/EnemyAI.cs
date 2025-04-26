@@ -27,7 +27,8 @@ public class EnemyAI : MonoBehaviour
             other.GetComponent<IDamageable>().TakeDamage();
         }else if(other.CompareTag("Drone")){
             this.GetComponent<EnemyManager>().SetToDeath();
-            GrappleLine.Instance.Detach();
+            // GrappleLine.Instance.Detach();
+            GrappleLine.Instance.SetMode(GrappleLineMode.DroneToPlayer);
         }
     }
 }

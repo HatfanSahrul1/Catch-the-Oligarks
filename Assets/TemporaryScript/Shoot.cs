@@ -74,6 +74,7 @@ public class Shoot : MonoBehaviour
         {
             GameObject projectile = objectPool.SpawnFromPool(projectileTag, shootPoint.position, Quaternion.identity);
             projectile.GetComponent<Projectile>().SetTarget(targetPoint, bulletTravelTime);
+            GrappleLine.Instance.SetMode(GrappleLineMode.DroneToPlayerToHook, projectile.transform);
         }
     }
 
