@@ -3703,8 +3703,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3088335308278098965, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
+      propertyPath: jump.m_SingletonActionBindings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088335308278098965, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
       propertyPath: move.m_SingletonActionBindings.Array.size
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088335308278098965, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
+      propertyPath: jump.m_SingletonActionBindings.Array.data[2].m_Id
+      value: 3299f3a9-a76e-4e76-b9c7-1a656964bf88
       objectReference: {fileID: 0}
     - target: {fileID: 3088335308278098965, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
       propertyPath: move.m_SingletonActionBindings.Array.data[6].m_Id
@@ -3717,6 +3725,10 @@ PrefabInstance:
     - target: {fileID: 3088335308278098965, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
       propertyPath: move.m_SingletonActionBindings.Array.data[8].m_Id
       value: 8d569651-0541-4bd2-a130-eba18bf21718
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088335308278098965, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
+      propertyPath: jump.m_SingletonActionBindings.Array.data[2].m_Path
+      value: <Keyboard>/upArrow
       objectReference: {fileID: 0}
     - target: {fileID: 3088335308278098965, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
       propertyPath: move.m_SingletonActionBindings.Array.data[6].m_Name
@@ -3753,6 +3765,10 @@ PrefabInstance:
     - target: {fileID: 3088335308278098965, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
       propertyPath: move.m_SingletonActionBindings.Array.data[8].m_Flags
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088335308278098965, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
+      propertyPath: jump.m_SingletonActionBindings.Array.data[2].m_Action
+      value: Jump
       objectReference: {fileID: 0}
     - target: {fileID: 3088335308278098965, guid: 22ffb2e85553c3e48a24ee3dd1e38f5e, type: 3}
       propertyPath: move.m_SingletonActionBindings.Array.data[6].m_Action

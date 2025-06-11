@@ -29,6 +29,14 @@ public class MPU6050Controller : MonoBehaviour
     private Vector3 calibrationOffset;
     private bool isCalibrated = false;
 
+    // Public properties to access IMU data
+    public MPU6050Data CurrentData => currentData;
+    public float Roll => currentData?.roll ?? 0f;
+    public float Pitch => currentData?.pitch ?? 0f;
+    public float Yaw => currentData?.yaw ?? 0f;
+    public Vector3 Acceleration => new Vector3(currentData?.accelX ?? 0f, currentData?.accelY ?? 0f, currentData?.accelZ ?? 0f);
+    public Vector3 Gyroscope => new Vector3(currentData?.gyroX ?? 0f, currentData?.gyroY ?? 0f, currentData?.gyroZ ?? 0f);
+
     void Start()
     {
         currentData = new MPU6050Data();
